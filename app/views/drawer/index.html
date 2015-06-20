@@ -15,10 +15,10 @@
 <script>
 imagesLoaded( '#drawer-result', function() {
   html2canvas($('#drawer-result'), {
-  	allowTaint: true,
-  	logging:true,
     onrendered: function(canvas) {
       document.body.appendChild(canvas);
+      imagestring = canvas.toDataURL("image/png");
+      console.log(imagestring);
     }
   });
 });
