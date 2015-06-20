@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require imagesloaded.pkgd.min.js
+//= require html2canvas

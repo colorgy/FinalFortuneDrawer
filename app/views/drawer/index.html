@@ -1,0 +1,28 @@
+<%= link_to "Sign in with Colorgy", user_omniauth_authorize_path(:colorgy) %>
+<div class="drawer-result" id="drawer-result">
+	<div class="result-canvas">
+      <div class="layer1">
+        <img src="http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg">
+      </div>
+      <div class="layer2">
+        <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/11230584_10200601130106368_3020996306913720033_n.jpg?oh=f73ee0c11cd9a25f859b22bd6eace298&oe=55F65B4C&__gda__=1445037337_0bd13ec4d6959e02fe28317862b95594">
+      </div>
+	</div>
+</div>
+<div class="canvas-result" id="canvas-result">
+
+</div>
+<script>
+imagesLoaded( $('#drawer-result'), function() {
+  var canvas = $('#drawer-result');
+  html2canvas('#canvas-result', {
+  	allowTaint: true,
+  	logging:true,
+    onrendered: function(canvas) {
+      document.body.appendChild(canvas);
+    }
+  });
+
+	console.log('has been');
+});
+</script>
