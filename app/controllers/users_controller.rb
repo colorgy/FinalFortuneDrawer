@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     drawer14: { content_image: "description14.jpg", description: '得此籤者，請即刻登出 Line、Beetalk，清心寡慾以學業為上', type: 'asdf', id: 14 },
   }
 
-
   def show
     @user = User.find_by_id(params[:id])
 
@@ -49,5 +48,18 @@ class UsersController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def shared_callback
+    if current_user
+      current_user.shared = true
+      current_user.save!
+    end
+
+    render json: {}
+  end
+
+  def userall
+    @users = User.all
   end
 end
