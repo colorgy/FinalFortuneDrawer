@@ -76,7 +76,6 @@ $('img.avatar').attr('src', '/proxy?url=' + base64Url);
 imagesLoaded( '#drawer-result', function() {
 	console.log('loaded');
   html2canvas($('#drawer-result'), {
-  	logging: true,
     onrendered: function(canvas) {
       imagestring = canvas.toDataURL("image/png");
       console.log(imagestring);
