@@ -114,8 +114,8 @@
         // console.log(decodeURL);
         // $('meta[property="og:image"]').attr('content', decodeURL );
 
-        <% if current_user && current_user == @user %>
-          $.post('/upload', {"image": imagestring}, function(data) {
+        <% if @user && @user.image_url.blank? %>
+          $.post('/upload', {"image": imagestring, 'user_id': <%= @user.id %>}, function(data) {
             image_url = data["image_url"]
           });
         <% end %>
