@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get 'draw' => 'drawer#draw'
 
   post 'user_shared' => 'users#shared_callback'
+
+  get 'userall' => 'users#userall'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

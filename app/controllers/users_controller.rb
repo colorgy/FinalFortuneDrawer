@@ -58,4 +58,8 @@ class UsersController < ApplicationController
 
     render json: {}
   end
+
+  def userall
+    @users = User.all
+  end
 end
