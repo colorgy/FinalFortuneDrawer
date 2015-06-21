@@ -85,6 +85,10 @@ imagesLoaded( '#drawer-result', function() {
       var decodeURL = '<%= current_user ? current_user.avatar_url : '' %>';
       console.log(decodeURL);
       $('meta[property="og:image"]').attr('content', decodeURL );
+
+      <% if current_user && current_user == @user %>
+        $.post('/upload', {"image": imagestring});
+      <% end %>
     }
   });
 });
