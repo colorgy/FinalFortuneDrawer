@@ -7,21 +7,18 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <% if current_user %>
-	<%= current_user.name %>
-	<%= current_user.drawer_key %>
-	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+	<div class="fb-page-contianer">
+		<div class="fb-page" data-href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts"><a href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts">Colorgy</a></blockquote></div></div>
+	</div>
+	<div class="fb-login-btn">
+		<%= link_to "已登入，開始求籤囉！", draw_path %>
+	</div>
 <% else %>
 	<div class="fb-page-contianer">
 		<div class="fb-page" data-href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts"><a href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts">Colorgy</a></blockquote></div></div>
 	</div>
 	<div class="fb-login-btn">
-		<%= link_to "Sign in with Colorgy", user_omniauth_authorize_path(:colorgy) %>
+		<%= link_to "用 Facebook 登入 Colorgy", draw_path %>
 	</div>
 <% end %>
-
-<a href="<%= draw_path %>">我要抽獎～</a>
-
-
-
-
 

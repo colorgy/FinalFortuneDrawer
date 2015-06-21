@@ -1,6 +1,21 @@
 img{
 	width: 100%;
 }
+nav{
+	background-color: #222;
+	height: 50px;
+	line-height: 50px;
+
+	.brand-logo{
+		width: 130px;
+
+		img{
+			@media screen and (min-width: 992px) {
+				margin: 0 24px;
+			}
+		}
+	}
+}
 .result-img{
 	width: 800px;
 	margin: 0 auto;
@@ -17,21 +32,23 @@ img{
 .fb-login-btn{
 	> a {
 		display: block;
+		margin-top: 24px;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 40px;
-		margin-bottom: 40px;
 		max-width: 300px;
 		text-align: center;
 		background-color: #3B579D;
 		color: #ffffff;
 		padding: 10px 15px 10px 15px;
 		border-radius: 10px;
-		font-size: 1.6em;
+		font-size: 1.2em;
 	}
 }
 .canvas-result{
 	text-align: center;
+	margin: 24px 0;
+	width: 100%;
+	overflow-x: auto;
 }
 .drawer-result{
 	position: relative;
