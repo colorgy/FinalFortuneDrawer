@@ -16,34 +16,55 @@
 
 </div>
 <div class="fb-share-container">
-	<div class="fb-share-button" data-href="http://colorgyfinalfortunedrawer.dev/" data-layout="button"></div>
+	<!-- <div class="fb-share-button" data-href="http://colorgyfinalfortunedrawer.dev/" data-layout="button"></div> -->
+  <% if current_user == @user %>
+    <div class="fb-share-button" onclick="initShare()"></div>
+  <% end %>
 </div>
+
 <script>
-function b64_to_utf8( str ) {
-  return decodeURIComponent(escape(window.atob( str )));
-}
-var base64Url = '<%= current_user ? Base64.encode64(current_user.avatar_url).gsub(/\n/, '') : '' %>';
+  rrrrrrr = null;
+  function initShare() {
+    _origin = window.location.origin + "<%= user_path(@user) %>";
+    FB.ui({
+      method: 'share_open_graph',
+      action_type: 'colorgy-io:draw',
+      action_properties: JSON.stringify({
+        type: 'colorgy-io:omikuji',
+        url: _origin,
+        title: '<%= @drawResult && @drawResult[:description] %>',
+        image: "<%= @user && @user.image_url %>"
+      })
+    }, function(response) {
+      console.log("post done");
+      console.log(response);
+    });
+  }
 
-$('img.avatar').attr('src', '/proxy?url=' + base64Url);
+  function b64_to_utf8( str ) {
+    return decodeURIComponent(escape(window.atob( str )));
+  }
+  var base64Url = '<%= current_user ? Base64.encode64(current_user.avatar_url).gsub(/\n/, '') : '' %>';
 
-imagesLoaded( '#drawer-result', function() {
-	console.log('loaded');
-  html2canvas($('#drawer-result'), {
-  	logging: true,
-    onrendered: function(canvas) {
-      imagestring = canvas.toDataURL("image/png");
-      console.log(imagestring);
-      $("<img />", { src: canvas.toDataURL("image/png") }).appendTo('#canvas-result').addClass('result-img');
-      $('#drawer-result').remove();
-      var decodeURL = '<%= current_user ? current_user.avatar_url : '' %>';
-      console.log(decodeURL);
-      $('meta[property="og:image"]').attr('content', decodeURL );
+  $('img.avatar').attr('src', '/proxy?url=' + base64Url);
 
-      <% if current_user && current_user == @user %>
-        $.post('/upload', {"image": imagestring});
-      <% end %>
-    }
+  imagesLoaded( '#drawer-result', function() {
+  	console.log('loaded');
+    html2canvas($('#drawer-result'), {
+      onrendered: function(canvas) {
+        imagestring = canvas.toDataURL("image/png");
+        console.log(imagestring);
+        $("<img />", { src: canvas.toDataURL("image/png") }).appendTo('#canvas-result').addClass('result-img');
+        $('#drawer-result').remove();
+        var decodeURL = '<%= current_user ? current_user.avatar_url : '' %>';
+        // console.log(decodeURL);
+        // $('meta[property="og:image"]').attr('content', decodeURL );
+
+        <% if current_user && current_user == @user %>
+          $.post('/upload', {"image": imagestring});
+        <% end %>
+      }
+    });
   });
-});
 
 </script>
