@@ -7,11 +7,12 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <meta property="og:title" content="<%= @drawResult && @drawResult[:description] %>" />
+  <meta property="og:action" content="colorgy-io:draw">
+  <meta property="og:type" content="colorgy-io:omikuji">
   <meta property="og:image" content="<%= @user && @user.image_url %>"/>
-	<meta property="og:description" content="" />
+  <meta property="og:description" content="" />
   <meta property="og:url" content="<%= "#{request.env["rack.url_scheme"]}://#{request.host}#{request.fullpath}" %>" />
   <meta property="og:site_name" content="Colorgy 期末救救祭"/>
-  <!-- <meta property="og:action" content="colorgy-io:draw"> -->
   <script>
     window.fbAsyncInit = function() {
       FB.init({
