@@ -1,17 +1,27 @@
 <div id="fb-root"></div>
 <% if current_user %>
-	<div class="fb-page-contianer">
-		<div class="fb-page" data-href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts"><a href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts">Colorgy</a></blockquote></div></div>
+	<div class="landing-page">
+		<%= image_tag ('landing-page.jpg') %>
 	</div>
-	<div class="fb-login-btn">
-		<%= link_to "已登入，開始求籤囉！", draw_path %>
+	<div class="start">
+		<div class="fb-login-btn">
+			<%= link_to "已登入，按我開始求籤囉！", draw_path %>
+		</div>
+		<div class="fb-page-contianer">
+			<div class="fb-page" data-href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts"><a href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts">Colorgy</a></blockquote></div></div>
+		</div>
 	</div>
 <% else %>
-	<div class="fb-page-contianer">
-		<div class="fb-page" data-href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts"><a href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts">Colorgy</a></blockquote></div></div>
+	<div class="landing-page">
+		<%= image_tag ('landing-page.jpg') %>
 	</div>
-	<div class="fb-login-btn">
-		<%= link_to "用 Facebook 登入 Colorgy", draw_path %>
+	<div class="start">
+		<div class="fb-login-btn">
+			<%= link_to "用 Facebook 登入 Colorgy", draw_path %>
+		</div>
+		<div class="fb-page-contianer">
+			<div class="fb-page" data-href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts"><a href="https://www.facebook.com/pages/Colorgy/1529686803975150?fref=ts">Colorgy</a></blockquote></div></div>
+		</div>
 	</div>
 <% end %>
 
