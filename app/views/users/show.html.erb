@@ -1,77 +1,84 @@
-<div class="drawers">
-	<div class="drawers-animation">
-		<div class="drawers-animation-inner">
-			<div class="drawer-item">
-				<%= image_tag ('description1.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description2.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description3.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description4.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description5.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description6.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description7.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description8.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description9.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description10.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description11.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description12.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description13.jpg') %>
-			</div>
-			<div class="drawer-item">
-				<%= image_tag ('description14.jpg') %>
+
+	<div class="drawers">
+		<div class="drawers-animation">
+			<div class="drawers-animation-inner">
+				<div class="drawer-item">
+					<%= image_tag ('description1.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description2.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description3.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description4.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description5.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description6.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description7.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description8.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description9.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description10.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description11.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description12.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description13.jpg') %>
+				</div>
+				<div class="drawer-item">
+					<%= image_tag ('description14.jpg') %>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="drawer-result" id="drawer-result" style="position: absolute; z-index: -2;">
-	<div class="result-canvas">
-        <img class="avatar">
-        <div class="content">
-        	<%= image_tag @drawResult[:content_image] %>
-        </div>
-        <div class="description">
-			<%= @drawResult[:description] %>
-        </div>
+	<div style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: #fff; z-index: -1;">
 	</div>
-</div>
-<div style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: #fff; z-index: -1;">
-</div>
-<div class="canvas-result fadeout" id="canvas-result" style="z-index: 1;">
+	<div class="drawer-result" id="drawer-result" style="z-index: -2;">
+		<div class="result-canvas">
+	        <img class="avatar">
+	        <div class="content">
+	        	<%= image_tag @drawResult[:content_image] %>
+	        </div>
+	        <div class="description">
+				<%= @drawResult[:description] %>
+	        </div>
+		</div>
+	</div>
+	<div class="user" style="text-align: center;">
+		<h4><span class="user-avatar"><%= image_tag @user.avatar_url %></span><%= @user.name %>抽到的籤是：</h4>
+	</div>
+	<div class="canvas-result fadeout" id="canvas-result" style="z-index: 1;">
+		<div id="canvas-result-inner">
 
-</div>
-<div class="fb-share-container">
-	<!-- <div class="fb-share-button" data-href="http://colorgyfinalfortunedrawer.dev/" data-layout="button"></div> -->
-  <% if current_user == @user %>
-    <a class="main-btn" onclick="initShare()">分享到FB吧！</a>
-  <% else %>
-    <div class="fb-login-btn">
-      <%= link_to '我也要抽啦！', root_path %>
-    </div>
-  <% end %>
-</div>
+		</div>
+		<div class="fb-share-container">
+			<!-- <div class="fb-share-button" data-href="http://colorgyfinalfortunedrawer.dev/" data-layout="button"></div> -->
+		  <% if current_user == @user %>
+		    <a class="main-btn" onclick="initShare()">分享到FB吧！</a>
+		  <% else %>
+		    <div class="i-want-too-btn">
+		      <%= link_to '我也要抽啦！', root_path %>
+		    </div>
+		  <% end %>
+		</div>
+	</div>
+
 
 <script>
   image_url = null;
@@ -110,10 +117,10 @@
   	console.log('loaded');
     html2canvas($('#drawer-result'), {
       onrendered: function(canvas) {
+        $('#drawer-result').remove();
         imagestring = canvas.toDataURL("image/png");
         console.log(imagestring);
-        $("<img />", { src: canvas.toDataURL("image/png") }).appendTo('#canvas-result').addClass('result-img');
-        $('#drawer-result').remove();
+        $("<img />", { src: canvas.toDataURL("image/png") }).appendTo('#canvas-result-inner').addClass('result-img');
         var decodeURL = '<%= current_user ? current_user.avatar_url : '' %>';
         // console.log(decodeURL);
         // $('meta[property="og:image"]').attr('content', decodeURL );

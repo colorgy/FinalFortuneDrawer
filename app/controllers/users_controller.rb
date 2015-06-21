@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     drawer2: { content_image: "description2.jpg", description: '得此籤者，必為功成名就、隨便都過之人', type: 'asdf', id: 2 },
     drawer3: { content_image: "description3.jpg", description: '得此籤者，必為吉人天相，因禍得福之人', type: 'asdf', id: 3 },
     drawer4: { content_image: "description4.jpg", description: '得此籤者，必為一分耕耘，一分收獲之人', type: 'asdf', id: 4 },
-    drawer5: { content_image: "description5.jpg", description: '得此籤者，必為九死一生，驚險連連之人', type: 'asdf', id: 5 },
     drawer6: { content_image: "description6.jpg", description: '得此籤者，您還是洗洗睡了吧', type: 'asdf', id: 6 },
     drawer7: { content_image: "description7.jpg", description: '得此籤者，請密切注意貴校之休、退學門檻', type: 'asdf', id: 7 },
     drawer8: { content_image: "description8.jpg", description: '得此籤者，近日將有清純可愛學妹，為您打氣祝福', type: 'asdf', id: 8 },
