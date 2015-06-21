@@ -1,5 +1,5 @@
 <ul>
 	<% @users.each do |u| %>
-		<%= u.name %>
+		<li><a href="/users/<%= u.id %>"><%= u.name %></a></li>
 	<% end %>
 </ul>
