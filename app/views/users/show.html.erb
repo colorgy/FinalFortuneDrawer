@@ -66,6 +66,10 @@
 	<!-- <div class="fb-share-button" data-href="http://colorgyfinalfortunedrawer.dev/" data-layout="button"></div> -->
   <% if current_user == @user %>
     <button class="button" onclick="initShare()">分享</button>
+  <% else %>
+    <div class="fb-login-btn">
+      <%= link_to '也來一發吧！', root_path %>
+    </div>
   <% end %>
 </div>
 
