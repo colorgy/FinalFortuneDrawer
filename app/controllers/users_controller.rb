@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 					if @user.drawer_key # user has drawer_key
 						@drawResult = DRAWERS[@user.drawer_key.to_sym]
 					else
-						@drawResult = nil
+						redirect_to root_path
 					end
 				end
 			else
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 				if @user.drawer_key # user has drawer_key
 					@drawResult = DRAWERS[@user.drawer_key.to_sym]
 				else
-					@drawResult = nil
+					redirect_to root_path
 				end
 			end
 		else
