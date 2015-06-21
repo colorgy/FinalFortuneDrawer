@@ -140,7 +140,6 @@ $(window).load(function(){
 	console.log(drawerCount);
 
 	for ( i = 1; i <= drawerCount; i++) {
-		console.log('hi');
 		var rotateYDegress = degreePerDrawer*i
 		var hehe = 'rotateY(' + rotateYDegress +'deg)' + ' ' + 'translateZ(460px)'
 		$('.drawer-item:nth-child(' + i + ')').css({
@@ -148,10 +147,20 @@ $(window).load(function(){
 		})
 	};
 })
-var delay = setTimeout(function(){
+if (<%= @user == current_user %>) {
+  var delay = setTimeout(function(){
     $('.drawers-animation').addClass('fadeout');
-       }, 5000);
-var delay2 = setTimeout(function(){
+  }, 5000);
+  var delay2 = setTimeout(function(){
     $('.canvas-result').removeClass('fadeout');
-       }, 5100);
+  }, 5100);
+} else {
+  var delay = setTimeout(function(){
+    $('.drawers-animation').addClass('fadeout');
+  }, 1);
+  var delay2 = setTimeout(function(){
+    $('.canvas-result').removeClass('fadeout');
+  }, 2);
+}
+
 </script>
