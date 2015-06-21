@@ -49,6 +49,17 @@ nav{
 	margin: 24px 0;
 	width: 100%;
 	overflow-x: auto;
+	opacity: 1;
+	transition: all 0.8s;
+	-webkit-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+
+	&.fadeout{
+		opacity: 0;
+		visibility: hidden;
+	}
 }
 .drawer-result{
 	position: relative;
@@ -88,4 +99,74 @@ nav{
 			top: 30%;
 		}
 	}
+}
+.drawers-animation{
+	width: 210px;
+	height: 140px;
+	position: relative;
+	margin: 0 auto 40px;
+	-webkit-perspective: 1100px;
+	-moz-perspective: 1100px;
+	-o-perspective: 1100px;
+	perspective: 1100px;
+	opacity: 1;
+	transition: all 0.8s;
+	-webkit-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+
+	&.fadeout{
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.drawers-animation-inner{
+		transition: transform 1s;
+		position: absolute;
+		transform: translateZ(-460px) rotateY(0deg);
+		animation: spinner 8s infinite linear;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+
+		.drawer-item{
+			width: 186px;
+			margin: 12px 24px;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			transition: opacity 1s, transform 1s;
+			display: block;
+		}
+	}
+}
+
+@keyframes spinner {
+    0% { transform: translateZ(-460px) rotateY(0deg); }
+    50% { transform: translateZ(-460px) rotateY(180deg); }
+    100% { transform: translateZ(-460px) rotateY(360deg); }
+}
+.landing-page{
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+}
+.start{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	background-color: rgba(255,255,255,.6);
+	width: 330px;
+}
+.drawers{
+	position: absolute;
+	width: 100%;
+	top: 40%;
+	transform: translateY(-50%);
 }
