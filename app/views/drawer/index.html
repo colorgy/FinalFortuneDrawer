@@ -1,25 +1,56 @@
-<%= link_to "Sign in with Colorgy", user_omniauth_authorize_path(:colorgy) %>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3&appId=630424637093473";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<% if current_user %>
+	<%= current_user.name %>
+	<%= current_user.drawer_key %>
+	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+	<%= link_to "Sign in with Colorgy", user_omniauth_authorize_path(:colorgy) %>
+<% end %>
+
 <div class="drawer-result" id="drawer-result" style="position: absolute; z-index: -1;">
 	<div class="result-canvas">
-      <div class="layer1">
-        <img src="http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg">
-      </div>
-      <div class="layer2">
-        <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/11230584_10200601130106368_3020996306913720033_n.jpg?oh=f73ee0c11cd9a25f859b22bd6eace298&oe=55F65B4C&__gda__=1445037337_0bd13ec4d6959e02fe28317862b95594">
-      </div>
+        <img class="avatar">
+        <div class="content">
+        	<%= image_tag @drawResult[:content_image] %>
+        </div>
+        <div class="description">
+			<%= @drawResult[:description] %>
+        </div>
 	</div>
 </div>
 <div class="canvas-result" id="canvas-result">
 
 </div>
+<div class="fb-share-button" data-href="http://colorgyfinalfortunedrawer.dev/" data-layout="button"></div>
 <script>
+function b64_to_utf8( str ) {
+  return decodeURIComponent(escape(window.atob( str )));
+}
+var base64Url = '<%= current_user ? Base64.encode64(current_user.avatar_url).gsub(/\n/, '') : '' %>';
+
+$('img.avatar').attr('src', '/proxy?url=' + base64Url);
+
 imagesLoaded( '#drawer-result', function() {
+	console.log('loaded');
   html2canvas($('#drawer-result'), {
+  	logging: true,
     onrendered: function(canvas) {
-      document.body.appendChild(canvas);
       imagestring = canvas.toDataURL("image/png");
       console.log(imagestring);
+      $("<img />", { src: canvas.toDataURL("image/png") }).appendTo('body').addClass('result-img');
+      $('#drawer-result').remove();
+      var decodeURL = '<%= current_user.avatar_url %>';
+      console.log(decodeURL);
+      $('meta[property="og:image"]').attr('content', decodeURL );
     }
   });
 });
+
 </script>

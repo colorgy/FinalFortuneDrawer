@@ -1,0 +1,46 @@
+img{
+	width: 100%;
+}
+.result-img{
+	width: 800px;
+	margin: 0 auto;
+}
+.drawer-result{
+	position: relative;
+	width: 1200px;
+	min-height: 798px;
+	margin: 0 auto;
+
+	.result-canvas{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-image: image-url('bg1.jpg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		> .avatar{
+			width: 100px;
+			height: 100px;
+			overflow: hidden;
+			position: absolute;
+			display: none;
+		}
+
+		> .content{
+			position: absolute;
+			width: 25%;
+			top: 25%;
+			left: 10%;
+		}
+		> .description {
+			width: 35%;
+			height: 30%;
+			font-size: 5em;
+			position: absolute;
+			left: 55%;
+			top: 30%;
+		}
+	}
+}
