@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:colorgy]
 
   def self.from_colorgy(auth)
-    user = where(:id => auth.info.id).first_or_create!
+    user = where(:id => auth.info.id).first_or_create! do |new_user|
+      new_user.email = auth[:info][:email]
+    end
 
     attrs = %i(avatar_url name fbid fbtoken)
 
