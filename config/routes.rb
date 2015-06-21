@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   root 'drawer#index'
 
   get 'users/:id' => 'users#show'
+
   get 'proxy' => 'proxy#index'
+  post 'upload' => 'proxy#image_upload'
 
   get 'draw' => 'drawer#draw'
   # Example of regular route:

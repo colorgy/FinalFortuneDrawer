@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621014905) do
+ActiveRecord::Schema.define(version: 20150621060029) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                   default: "", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150621014905) do
     t.string   "fbtoken"
     t.datetime "refreshed_at"
     t.string   "drawer_key"
+    t.string   "image_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
