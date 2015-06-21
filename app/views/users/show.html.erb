@@ -65,27 +65,34 @@
 <div class="fb-share-container">
 	<!-- <div class="fb-share-button" data-href="http://colorgyfinalfortunedrawer.dev/" data-layout="button"></div> -->
   <% if current_user == @user %>
-    <div class="fb-share-button" onclick="initShare()"></div>
+    <a class="button" onclick="initShare()">分享</div>
   <% end %>
 </div>
 
 <script>
-  rrrrrrr = null;
+  image_url = null;
   function initShare() {
     _origin = window.location.origin + "<%= user_path(@user) %>";
-    FB.ui({
-      method: 'share_open_graph',
-      action_type: 'colorgy-io:draw',
-      action_properties: JSON.stringify({
-        type: 'colorgy-io:omikuji',
-        url: _origin,
-        title: '<%= @drawResult && @drawResult[:description] %>',
-        image: "<%= @user && @user.image_url %>"
-      })
-    }, function(response) {
-      console.log("post done");
-      console.log(response);
-    });
+    url = "https://www.facebook.com/sharer/sharer.php?"
+      + "u=" + encodeURIComponent(_origin)
+     // + "&display=popup"
+     // + "&name=" + '<%= @drawResult && @drawResult[:description] %>'
+     // + "&link=" + encodeURIComponent(_origin)
+     // + "&picture=" + encodeURIComponent(image_url)
+    window.open(url, 'facebook-share-dialog', 'status=0,width=626,height=436')
+    // FB.ui({
+    //   method: 'share_open_graph',
+    //   action_type: 'colorgy-io:draw',
+    //   action_properties: JSON.stringify({
+    //     type: 'colorgy-io:omikuji',
+    //     url: _origin,
+    //     title: '<%= @drawResult && @drawResult[:description] %>',
+    //     image: "<%= @user && @user.image_url %>"
+    //   })
+    // }, function(response) {
+    //   console.log("post done");
+    //   console.log(response);
+    // });
   }
 
   function b64_to_utf8( str ) {
@@ -108,7 +115,9 @@
         // $('meta[property="og:image"]').attr('content', decodeURL );
 
         <% if current_user && current_user == @user %>
-          $.post('/upload', {"image": imagestring});
+          $.post('/upload', {"image": imagestring}, function(data) {
+            image_url = data["image_url"]
+          });
         <% end %>
       }
     });

@@ -23,7 +23,7 @@ class ProxyController < ApplicationController
         current_user.image_url = image_url
         current_user.save!
       end
-      render :json => {status: "ok"}
+      render :json => {status: "ok", image_url: image_url}
     else
       render :json => {status: "access denied"}, status: 501
     end
