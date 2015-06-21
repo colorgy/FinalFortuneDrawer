@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'drawer#index'
 
+  get 'users/:id' => 'users#show'
   get 'proxy' => 'proxy#index'
 
+  get 'draw' => 'drawer#draw'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

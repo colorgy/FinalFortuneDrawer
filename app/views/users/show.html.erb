@@ -1,0 +1,43 @@
+
+<div class="drawer-result" id="drawer-result" style="position: absolute; z-index: -1;">
+	<div class="result-canvas">
+        <img class="avatar">
+        <div class="content">
+        	<%= image_tag @drawResult[:content_image] %>
+        </div>
+        <div class="description">
+			<%= @drawResult[:description] %>
+        </div>
+	</div>
+</div>
+<div class="canvas-result" id="canvas-result">
+
+</div>
+<div class="fb-share-container">
+	<div class="fb-share-button" data-href="http://colorgyfinalfortunedrawer.dev/" data-layout="button"></div>
+</div>
+<script>
+function b64_to_utf8( str ) {
+  return decodeURIComponent(escape(window.atob( str )));
+}
+var base64Url = '<%= current_user ? Base64.encode64(current_user.avatar_url).gsub(/\n/, '') : '' %>';
+
+$('img.avatar').attr('src', '/proxy?url=' + base64Url);
+
+imagesLoaded( '#drawer-result', function() {
+	console.log('loaded');
+  html2canvas($('#drawer-result'), {
+  	logging: true,
+    onrendered: function(canvas) {
+      imagestring = canvas.toDataURL("image/png");
+      console.log(imagestring);
+      $("<img />", { src: canvas.toDataURL("image/png") }).appendTo('#canvas-result').addClass('result-img');
+      $('#drawer-result').remove();
+      var decodeURL = '<%= current_user ? current_user.avatar_url : '' %>';
+      console.log(decodeURL);
+      $('meta[property="og:image"]').attr('content', decodeURL );
+    }
+  });
+});
+
+</script>

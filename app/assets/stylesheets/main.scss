@@ -5,6 +5,34 @@ img{
 	width: 800px;
 	margin: 0 auto;
 }
+.fb-page-contianer{
+	padding: 24px;
+	margin: 0 auto;
+	text-align: center;
+}
+.fb-share-container{
+	margin: 0 auto;
+	text-align: center;
+}
+.fb-login-btn{
+	> a {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		max-width: 300px;
+		text-align: center;
+		background-color: #3B579D;
+		color: #ffffff;
+		padding: 10px 15px 10px 15px;
+		border-radius: 10px;
+		font-size: 1.6em;
+	}
+}
+.canvas-result{
+	text-align: center;
+}
 .drawer-result{
 	position: relative;
 	width: 1200px;

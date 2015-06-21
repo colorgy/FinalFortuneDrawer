@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require materialize-sprockets
 //= require imagesloaded.pkgd.min.js
 //= require html2canvas
