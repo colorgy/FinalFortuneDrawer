@@ -51,7 +51,7 @@
 	</div>
 	<div class="drawer-result" id="drawer-result" style="z-index: -2;">
 		<div class="result-canvas">
-	        <img class="avatar">
+	        <div class="user-info"><img class="avatar"> <%= @user.name %> <small>的期末運勢解析...</small></div>
 	        <div class="content">
 	        	<%= image_tag @drawResult[:content_image] %>
 	        </div>

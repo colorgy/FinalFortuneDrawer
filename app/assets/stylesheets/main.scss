@@ -95,12 +95,29 @@ nav{
 		background-position: center;
 		background-size: cover;
 
-		> .avatar{
-			width: 100px;
+		.user-info {
+			top: 230px;
+			left: 618px;
 			height: 100px;
 			overflow: hidden;
 			position: absolute;
-			display: none;
+			font-size: 48px;
+			line-height: 100px;
+
+			small {
+				font-size: 21px;
+				opacity: .8;
+			}
+		}
+
+		.avatar{
+			width: 100px;
+			height: 100px;
+			overflow: hidden;
+			float: left;
+			margin-right: 20px;
+			// position: absolute;
+			// display: none;
 		}
 
 		> .content{
@@ -110,12 +127,12 @@ nav{
 			left: 10%;
 		}
 		> .description {
-			width: 35%;
+			width: 480px;
 			height: 30%;
-			font-size: 5em;
+			font-size: 48px;
 			position: absolute;
-			left: 55%;
-			top: 30%;
+			left: 618px;
+			top: 350px;
 		}
 	}
 }
