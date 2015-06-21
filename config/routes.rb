@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'upload' => 'proxy#image_upload'
 
   get 'draw' => 'drawer#draw'
+  get 'userall' => 'users#userall'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
