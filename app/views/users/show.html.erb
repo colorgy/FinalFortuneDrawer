@@ -98,7 +98,7 @@
   function b64_to_utf8( str ) {
     return decodeURIComponent(escape(window.atob( str )));
   }
-  var base64Url = '<%= current_user ? Base64.encode64(current_user.avatar_url).gsub(/\n/, '') : '' %>';
+  var base64Url = '<%= current_user ? Base64.encode64(current_user.avatar_url.to_s).gsub(/\n/, '') : '' %>';
 
   $('img.avatar').attr('src', '/proxy?url=' + base64Url);
 
