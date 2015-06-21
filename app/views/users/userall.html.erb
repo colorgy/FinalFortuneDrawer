@@ -1,4 +1,5 @@
 <ul>
+	<h4>總共人數： <%= @users.count %></h4>
 	<% @users.each do |u| %>
 		<li><a href="/users/<%= u.id %>"><%= u.name %></a></li>
 	<% end %>
