@@ -85,25 +85,14 @@
   function initShare() {
     _origin = window.location.origin + "<%= user_path(@user) %>";
     url = "https://www.facebook.com/sharer/sharer.php?"
-      + "u=" + encodeURIComponent(_origin)
-     // + "&display=popup"
-     // + "&name=" + '<%= @drawResult && @drawResult[:description] %>'
-     // + "&link=" + encodeURIComponent(_origin)
-     // + "&picture=" + encodeURIComponent(image_url)
-    window.open(url, 'facebook-share-dialog', 'status=0,width=626,height=436')
-    // FB.ui({
-    //   method: 'share_open_graph',
-    //   action_type: 'colorgy-io:draw',
-    //   action_properties: JSON.stringify({
-    //     type: 'colorgy-io:omikuji',
-    //     url: _origin,
-    //     title: '<%= @drawResult && @drawResult[:description] %>',
-    //     image: "<%= @user && @user.image_url %>"
-    //   })
-    // }, function(response) {
-    //   console.log("post done");
-    //   console.log(response);
-    // });
+      + "u=" + encodeURIComponent(_origin);
+    window.open(url, 'facebook-share-dialog', 'status=0,width=626,height=436');
+
+    $.ajax({
+      method: 'POST',
+      url: '/user_shared',
+      dataType: 'json'
+    });
   }
 
   function b64_to_utf8( str ) {

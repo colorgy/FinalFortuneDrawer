@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post 'upload' => 'proxy#image_upload'
 
   get 'draw' => 'drawer#draw'
+
+  post 'user_shared' => 'users#shared_callback'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
