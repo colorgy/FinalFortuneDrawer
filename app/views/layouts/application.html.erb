@@ -24,11 +24,13 @@
 <body>
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
+      <a href="<%= root_path %>" class="brand-logo"><%= image_tag ('nav-logo.png') %></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="components.html">Components</a></li>
-        <li><a href="javascript.html">JavaScript</a></li>
+      	<% if current_user%>
+      		<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      	<% else %>
+					<li><%= link_to "Sign in with Colorgy", user_omniauth_authorize_path(:colorgy) %></li>
+      	<% end %>
       </ul>
     </div>
   </nav>
