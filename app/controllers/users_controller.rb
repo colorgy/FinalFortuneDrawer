@@ -13,6 +13,20 @@ class UsersController < ApplicationController
     drawer12: { content_image: "description12.jpg", description: '得此籤者，近日將有大刀闊斧教授，為您表演人體切割', type: 'asdf', id: 12 },
     drawer13: { content_image: "description13.jpg", description: '得此籤者，請即刻登出召喚峽谷，全心讀書為上', type: 'asdf', id: 13 },
     drawer14: { content_image: "description14.jpg", description: '得此籤者，請即刻登出 Line、Beetalk，清心寡慾以學業為上', type: 'asdf', id: 14 },
+    drawer15: { content_image: "description6.jpg", description: '得此籤者，您還是洗洗睡了吧', type: 'asdf', id: 15 },
+    drawer16: { content_image: "description6.jpg", description: '得此籤者，您還是洗洗睡了吧', type: 'asdf', id: 16 },
+    drawer17: { content_image: "description6.jpg", description: '得此籤者，您還是洗洗睡了吧', type: 'asdf', id: 17 },
+    drawer18: { content_image: "description6.jpg", description: '得此籤者，您還是洗洗睡了吧', type: 'asdf', id: 18 },
+    drawer19: { content_image: "description6.jpg", description: '得此籤者，您還是洗洗睡了吧', type: 'asdf', id: 19 },
+    drawer20: { content_image: "description6.jpg", description: '得此籤者，您還是洗洗睡了吧', type: 'asdf', id: 20 },
+    drawer21: { content_image: "description13.jpg", description: '得此籤者，請即刻登出召喚峽谷，全心讀書為上', type: 'asdf', id: 21 },
+    drawer22: { content_image: "description14.jpg", description: '得此籤者，請即刻登出 Line、Beetalk，清心寡慾以學業為上', type: 'asdf', id: 22 },
+    drawer23: { content_image: "description13.jpg", description: '得此籤者，請即刻登出召喚峽谷，全心讀書為上', type: 'asdf', id: 23 },
+    drawer24: { content_image: "description14.jpg", description: '得此籤者，請即刻登出 Line、Beetalk，清心寡慾以學業為上', type: 'asdf', id: 24 },
+    drawer25: { content_image: "description13.jpg", description: '得此籤者，請即刻登出召喚峽谷，全心讀書為上', type: 'asdf', id: 25 },
+    drawer26: { content_image: "description14.jpg", description: '得此籤者，請即刻登出 Line、Beetalk，清心寡慾以學業為上', type: 'asdf', id: 26 },
+    drawer27: { content_image: "description8.jpg", description: '得此籤者，近日將有清純可愛學妹，為您打氣祝福', type: 'asdf', id: 27 },
+    drawer28: { content_image: "description8.jpg", description: '得此籤者，近日將有清純可愛學妹，為您打氣祝福', type: 'asdf', id: 28 },
   }
 
 
