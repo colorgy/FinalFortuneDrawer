@@ -109,7 +109,7 @@
   function b64_to_utf8( str ) {
     return decodeURIComponent(escape(window.atob( str )));
   }
-  var base64Url = '<%= current_user ? Base64.encode64(current_user.avatar_url.to_s).gsub(/\n/, '') : '' %>';
+  var base64Url = '<%= @user ? Base64.encode64(@user.avatar_url.to_s).gsub(/\n/, '') : '' %>';
 
   $('img.avatar').attr('src', '/proxy?url=' + base64Url);
 
@@ -121,7 +121,7 @@
         imagestring = canvas.toDataURL("image/png");
         console.log(imagestring);
         $("<img />", { src: canvas.toDataURL("image/png") }).appendTo('#canvas-result-inner').addClass('result-img');
-        var decodeURL = '<%= current_user ? current_user.avatar_url : '' %>';
+        var decodeURL = '<%= @user ? @user.avatar_url : '' %>';
         // console.log(decodeURL);
         // $('meta[property="og:image"]').attr('content', decodeURL );
 
