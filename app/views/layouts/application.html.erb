@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Colorgy 期末祈福祭</title>
+  <title>Colorgy 期末救救祭</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 	<meta property="og:title" content="<%= @drawResult && @drawResult[:description] %>" />
   <meta property="og:action" content="colorgy-io:draw">
-	<meta property="og:site_name" content="Colorgy 期末祈福祭"/>
+	<meta property="og:site_name" content="Colorgy 期末救救祭"/>
 	<meta property="og:image" content="<%= @user && @user.image_url %>"/>
 	<meta property="og:url" content="<%= "#{request.env["rack.url_scheme"]}://#{request.host}#{request.fullpath}" %>" />
 	<meta property="og:description" content="" />
