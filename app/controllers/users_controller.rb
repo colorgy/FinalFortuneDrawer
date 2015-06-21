@@ -28,8 +28,8 @@ class UsersController < ApplicationController
 						@drawResult = DRAWERS[@user.drawer_key.to_sym]
 					else
 						drawer_key = DRAWERS.keys.sample
-						user.drawer_key = drawer_key
-						user.save!
+						@user.drawer_key = drawer_key
+						@user.save!
 						@drawResult = DRAWERS[drawer_key]
 					end
 				else # not my result page
