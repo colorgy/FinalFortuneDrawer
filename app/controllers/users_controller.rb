@@ -27,6 +27,18 @@ class UsersController < ApplicationController
     drawer26: { content_image: "description14.jpg", description: '得此籤者，請即刻登出 Line、Beetalk，清心寡慾以學業為上', type: 'asdf', id: 26 },
     drawer27: { content_image: "description8.jpg", description: '得此籤者，近日將有清純可愛學妹，為您打氣祝福', type: 'asdf', id: 27 },
     drawer28: { content_image: "description8.jpg", description: '得此籤者，近日將有清純可愛學妹，為您打氣祝福', type: 'asdf', id: 28 },
+    drawer29: { content_image: "description15.jpg", description: '得此籤者，全班同學的期末成績就靠你了！', type: 'asdf', id: 29 },
+    drawer30: { content_image: "description16.jpg", description: '得此籤者，請速速銷毀所有作弊用道具，光明正大作戰為上。', type: 'asdf', id: 30 },
+    drawer31: { content_image: "description17.jpg", description: '得此籤者，須當心考試看錯題目，多看窗外遠景、顧眼為上', type: 'asdf', id: 31 },
+    drawer32: { content_image: "description15.jpg", description: '得此籤者，全班同學的期末成績就靠你了！', type: 'asdf', id: 32 },
+    drawer33: { content_image: "description16.jpg", description: '得此籤者，請速速銷毀所有作弊用道具，光明正大作戰為上。', type: 'asdf', id: 33 },
+    drawer34: { content_image: "description17.jpg", description: '得此籤者，須當心考試看錯題目，多看窗外遠景、顧眼為上', type: 'asdf', id: 34 },
+    drawer35: { content_image: "description15.jpg", description: '得此籤者，全班同學的期末成績就靠你了！', type: 'asdf', id: 35 },
+    drawer36: { content_image: "description16.jpg", description: '得此籤者，請速速銷毀所有作弊用道具，光明正大作戰為上。', type: 'asdf', id: 36 },
+    drawer37: { content_image: "description17.jpg", description: '得此籤者，須當心考試看錯題目，多看窗外遠景、顧眼為上', type: 'asdf', id: 37 },
+    drawer38: { content_image: "description7.jpg", description: '得此籤者，請密切注意貴校之休、退學門檻', type: 'asdf', id: 38 },
+    drawer39: { content_image: "description7.jpg", description: '得此籤者，請密切注意貴校之休、退學門檻', type: 'asdf', id: 39 },
+    drawer40: { content_image: "description7.jpg", description: '得此籤者，請密切注意貴校之休、退學門檻', type: 'asdf', id: 40 },
   }
 
   def show
