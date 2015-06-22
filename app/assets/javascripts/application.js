@@ -15,3 +15,4 @@
 //= require materialize-sprockets
 //= require imagesloaded.pkgd.min.js
 //= require html2canvas
+//= require isotope.pkgd.min.js

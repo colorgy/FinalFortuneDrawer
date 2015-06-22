@@ -1,15 +1,28 @@
 <div class="container-fluid">
 	<div class="row">
 		<h4 style="text-align: center;">總共人數： <%= @users.count %></h4>
-		<% @users.each do |u| %>
-			<div class="col s4 m3 l1">
-				<div class="user-item">
-					<div class="avatar">
-						<%= image_tag u.avatar_url %>
+		<div class="isotope">
+            <div class="grid-sizer"></div>
+			<% @users.each do |u| %>
+					<div class="user-item">
+						<div class="avatar">
+							<%= image_tag u.avatar_url %>
+						</div>
+						<p><a href="/users/<%= u.id %>" target="_blank"><%= u.name %></a></p>
 					</div>
-					<p><a href="/users/<%= u.id %>"><%= u.name %></a></p>
-				</div>
-			</div>
-		<% end %>
+			<% end %>
+		</div>
 	</div>
 </div>
+<script>
+$( function() {
+  // init Isotope
+  var $container = $('.isotope').imagesLoaded(function(){
+    $container.isotope({
+      itemSelector: '.user-item',
+      columnWidth: '.grid-sizer',
+    });
+  });
+})
+
+</script>
