@@ -107,9 +107,11 @@
         imagestring = canvas.toDataURL("image/png");
         console.log(imagestring);
         $("<img />", { src: imagestring }).appendTo('#canvas-result-inner').addClass('result-img');
-        $('#canvas-result-inner').attr('href', imagestring);
-        $('#canvas-result-inner').attr('target', '_blank');
 
+        <% if @user && @user.image_url %>
+	        $('#canvas-result-inner').attr('href', '<%= @user.image_url %>');
+	        $('#canvas-result-inner').attr('target', '_blank');
+        <% end %>
 
         var decodeURL = '<%= @user ? @user.avatar_url : '' %>';
         // console.log(decodeURL);
